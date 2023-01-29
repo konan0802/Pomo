@@ -37,8 +37,7 @@ struct ProgressCircle: View {
                 .rotationEffect(Angle(degrees: -90))
                 .frame(width: 132, height: 132)
             Text(String(format: "%02d:%02d", min, sec))
-                .font(.largeTitle)
-                .fontWeight(.medium)
+                .font(.system(size: 36, weight: .medium))
                 //.foregroundColor(Color.green)
         }
     }
