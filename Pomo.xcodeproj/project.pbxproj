@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F42D2DA298660F000DB20BA /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F42D2D9298660F000DB20BA /* TaskView.swift */; };
 		2FC05B152973E0EE00CA2781 /* Pomo Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2FC05B142973E0EE00CA2781 /* Pomo Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2FC05B1A2973E0EE00CA2781 /* PomoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC05B192973E0EE00CA2781 /* PomoApp.swift */; };
 		2FC05B1C2973E0EE00CA2781 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC05B1B2973E0EE00CA2781 /* ContentView.swift */; };
@@ -15,6 +16,9 @@
 		2FC05B2B2973E0F100CA2781 /* Pomo_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC05B2A2973E0F100CA2781 /* Pomo_Watch_AppTests.swift */; };
 		2FC05B352973E0F100CA2781 /* Pomo_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC05B342973E0F100CA2781 /* Pomo_Watch_AppUITests.swift */; };
 		2FC05B372973E0F100CA2781 /* Pomo_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC05B362973E0F100CA2781 /* Pomo_Watch_AppUITestsLaunchTests.swift */; };
+		2FF36B6A298F653B0001BB55 /* OperateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF36B69298F653B0001BB55 /* OperateView.swift */; };
+		2FF36B6C298F655D0001BB55 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF36B6B298F655D0001BB55 /* TopView.swift */; };
+		2FF36B6E298F7A240001BB55 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF36B6D298F7A240001BB55 /* Function.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F42D2D9298660F000DB20BA /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		2FC05B0E2973E0EE00CA2781 /* Pomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC05B142973E0EE00CA2781 /* Pomo Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pomo Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC05B192973E0EE00CA2781 /* PomoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoApp.swift; sourceTree = "<group>"; };
@@ -67,6 +72,9 @@
 		2FC05B302973E0F100CA2781 /* Pomo Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pomo Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC05B342973E0F100CA2781 /* Pomo_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomo_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		2FC05B362973E0F100CA2781 /* Pomo_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomo_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2FF36B69298F653B0001BB55 /* OperateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperateView.swift; sourceTree = "<group>"; };
+		2FF36B6B298F655D0001BB55 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		2FF36B6D298F7A240001BB55 /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +127,11 @@
 			isa = PBXGroup;
 			children = (
 				2FC05B192973E0EE00CA2781 /* PomoApp.swift */,
+				2FF36B6D298F7A240001BB55 /* Function.swift */,
 				2FC05B1B2973E0EE00CA2781 /* ContentView.swift */,
+				2FF36B6B298F655D0001BB55 /* TopView.swift */,
+				2F42D2D9298660F000DB20BA /* TaskView.swift */,
+				2FF36B69298F653B0001BB55 /* OperateView.swift */,
 				2FC05B1D2973E0F100CA2781 /* Assets.xcassets */,
 				2FC05B1F2973E0F100CA2781 /* Preview Content */,
 			);
@@ -309,8 +321,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F42D2DA298660F000DB20BA /* TaskView.swift in Sources */,
+				2FF36B6C298F655D0001BB55 /* TopView.swift in Sources */,
 				2FC05B1C2973E0EE00CA2781 /* ContentView.swift in Sources */,
 				2FC05B1A2973E0EE00CA2781 /* PomoApp.swift in Sources */,
+				2FF36B6A298F653B0001BB55 /* OperateView.swift in Sources */,
+				2FF36B6E298F7A240001BB55 /* Function.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
