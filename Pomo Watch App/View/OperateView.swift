@@ -13,16 +13,15 @@ struct OperateView: View {
 
     var body: some View {
         ZStack {
-            Color.black
-                .ignoresSafeArea()
-            
+            Color.black.ignoresSafeArea()
             VStack {
-                Text("＜")
-                    .onTapGesture {
-                        display.operateViewOn = false
-                    }
-                
+                HStack{
+                    Text("< Back").onTapGesture {display.operateViewOn = false}
+                    Spacer()
+                }
                 Text("OperateView!")
+                Spacer()
+                
             }
         }
     }

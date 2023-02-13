@@ -13,16 +13,15 @@ struct TaskView: View {
 
     var body: some View {
         ZStack {
-            Color.black
-                 .ignoresSafeArea()
-
+            Color.black.ignoresSafeArea()
             VStack {
-                Text("＜")
-                    .onTapGesture {
-                        display.taskViewOn = false
-                    }
-     
+                HStack{
+                    Text("< Back").onTapGesture {display.taskViewOn = false}
+                    Spacer()
+                }
                 Text("TaskView!")
+                Spacer()
+                
             }
         }
     }

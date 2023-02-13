@@ -55,8 +55,8 @@ struct RunningTask: View {
             .onTapGesture {
                 display.taskViewOn = true
             }
-            //.font(.system(size: 18))
-            .frame(width: 140)
+            .font(.system(size: 13))
+            .frame(width: 150, height: 13)
     }
 }
 
