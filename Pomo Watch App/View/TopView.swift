@@ -9,13 +9,16 @@ import SwiftUI
 
 struct TopView: View {
     
+    @ObservedObject var currentTaskStore: CurrentTaskStore?
+    currentTaskStore = CurrentTaskStore();
     @ObservedObject var display: Display
+    
+    currentTaskStore = CurrentTaskStore()
     
     var body: some View {
         VStack{
             Spacer()
-            ProgressCircle(limit: 1500, progress: 1255)
-                .onAppear(perform: loadData)
+            ProgressCircle(limit: 1500, progress: currentTaskStore.task.duration!)
             HStack{
                 RunningTask(display: self.display)
                 Spacer()
