@@ -10,13 +10,15 @@ import SwiftUI
 struct TopView: View {
     
     @ObservedObject var display: Display
-        
+    @ObservedObject var timerViewModel: TimerViewModel
+
     var body: some View {
         VStack{
             Spacer()
-            ProgressCircle()
+            ProgressCircle(timerViewModel: self.timerViewModel)
+            Spacer()
             HStack{
-                RunningTask(display: self.display)
+                RunningTask(display: self.display, timerViewModel: self.timerViewModel)
                 Spacer()
                 OperateTask(display: self.display)
             }
@@ -26,7 +28,7 @@ struct TopView: View {
 
 struct ProgressCircle: View {
     
-    @ObservedObject var timerViewModel = TimerViewModel()
+    @ObservedObject var timerViewModel: TimerViewModel
     
     var body: some View {
         
@@ -36,9 +38,9 @@ struct ProgressCircle: View {
                 .stroke(style: StrokeStyle(lineWidth: 18, lineCap: .round, lineJoin: .round))
                 .foregroundColor(Color(red: timerViewModel.timer.color.r, green: timerViewModel.timer.color.g, blue: timerViewModel.timer.color.b))
                 .rotationEffect(Angle(degrees: -90))
-                .frame(width: 132, height: 132)
+                .frame(width: 125, height: 125)
             Text(String(format: "%02d:%02d", timerViewModel.timer.duration / 60, timerViewModel.timer.duration - ((timerViewModel.timer.duration / 60) * 60)))
-                .font(.system(size: 36, weight: .medium))
+                .font(.system(size: 34, weight: .medium))
         }
     }
 }
@@ -46,13 +48,15 @@ struct ProgressCircle: View {
 struct RunningTask: View {
     
     @ObservedObject var display: Display
+    @ObservedObject var timerViewModel: TimerViewModel
     
     var body: some View {
-        Text("MTG")
+        Text(timerViewModel.timer.name)
             .onTapGesture {
                 display.taskViewOn = true
-                print("aa")
             }
+            //.font(.system(size: 18))
+            .frame(width: 140)
     }
 }
 
@@ -63,7 +67,6 @@ struct OperateTask: View {
         Text("•••")
             .onTapGesture {
                 display.operateViewOn = true
-                print("ab")
             }
     }
 }

@@ -14,6 +14,7 @@ struct CororRGB: Decodable {
 }
 
 struct PomoTimer: Decodable {
+    var name: String
     var duration: Int
     var limit: Int
     var color: CororRGB

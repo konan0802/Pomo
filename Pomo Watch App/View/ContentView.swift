@@ -15,11 +15,12 @@ final class Display: ObservableObject {
 struct ContentView: View {
     
     @ObservedObject var display = Display()
+    @ObservedObject var timerViewModel = TimerViewModel()
 
     var body: some View {
         ZStack {
             
-            TopView(display: self.display)
+            TopView(display: self.display, timerViewModel: self.timerViewModel)
             
             if display.taskViewOn {
                 TaskView(display: self.display)

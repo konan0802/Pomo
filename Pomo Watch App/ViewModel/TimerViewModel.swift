@@ -17,7 +17,7 @@ class TimerViewModel: ObservableObject {
     private let str = "4f5a97b5555c23ba00eaa7da624a7ade:api_token"
     
     init() {
-        self.timer = PomoTimer(duration: 0, limit: 1500, color: CororRGB(r: 0.024, g: 0.702, b: 0.286))
+        self.timer = PomoTimer(name: "", duration: 0, limit: 1500, color: CororRGB(r: 0.024, g: 0.702, b: 0.286))
         self.task = Task(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "")
         
         fetchCurrentTaskFromTogglAPI()
@@ -31,7 +31,7 @@ class TimerViewModel: ObservableObject {
     }
 
     @objc private func countUp() {
-        if(self.task.description != "") {
+        if(self.task.description != "---") {
             self.timer.duration += 1
         }
     }
@@ -49,19 +49,22 @@ class TimerViewModel: ObservableObject {
             let data = data!
             let decoder = JSONDecoder()
             guard let decodedResponse = try? decoder.decode(Task.self, from: data) else {
-                self.timer = PomoTimer(duration: 0, limit: 1500, color: CororRGB(r: 0, g: 0.533, b: 0.2))
+                self.timer = PomoTimer(name: "---", duration: 0, limit: 1500, color: CororRGB(r: 0, g: 0.533, b: 0.2))
                 self.task = Task(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "")
                 return
             }
             DispatchQueue.main.async {
                 self.task = decodedResponse
-                self.convertTimer()
+                self.convertPomoTimer()
             }
 
         }.resume()
     }
 
-    private func convertTimer() {
+    private func convertPomoTimer() {
+        // nameの設定
+        self.timer.name = self.task.description
+        
         // limitの設定
         switch self.task.description {
             case Constants.MTG:
@@ -77,7 +80,7 @@ class TimerViewModel: ObservableObject {
         // durationの計算
         let date = Date()
         let unixtime = Int(date.timeIntervalSince1970)
-        self.timer.duration = unixtime + self.task.duration!
+        self.timer.duration = unixtime + self.task.duration
     }
     
     @objc private func checkTimer() {

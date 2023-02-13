@@ -33,9 +33,8 @@ struct Task: Decodable {
     var id: Int
     var workspaceId: Int?
     var projectId: Int?
-    var duration: Int?
-    var description: String?
-    var test: Int?
+    var duration: Int
+    var description: String
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
