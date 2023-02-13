@@ -35,4 +35,13 @@ struct Task: Decodable {
     var projectId: Int?
     var duration: Int?
     var description: String?
+    var test: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case workspaceId = "workspaceId"
+        case projectId = "projectId"
+        case duration = "duration"
+        case description = "description"
+    }
 }

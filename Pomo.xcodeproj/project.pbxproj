@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		2F42D2DA298660F000DB20BA /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F42D2D9298660F000DB20BA /* TaskView.swift */; };
 		2F73CB612999F9E000B842D6 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F73CB602999F9E000B842D6 /* Task.swift */; };
-		2FB91DCB2992761200D842F5 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB91DCA2992761200D842F5 /* TestView.swift */; };
+		2F73CB65299A0D6800B842D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F73CB64299A0D6800B842D6 /* Constants.swift */; };
+		2F73CB69299A2D1300B842D6 /* PomoTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F73CB68299A2D1300B842D6 /* PomoTimer.swift */; };
 		2FC05B152973E0EE00CA2781 /* Pomo Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2FC05B142973E0EE00CA2781 /* Pomo Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2FC05B1A2973E0EE00CA2781 /* PomoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC05B192973E0EE00CA2781 /* PomoApp.swift */; };
 		2FC05B1C2973E0EE00CA2781 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC05B1B2973E0EE00CA2781 /* ContentView.swift */; };
@@ -20,7 +21,7 @@
 		2FC05B372973E0F100CA2781 /* Pomo_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC05B362973E0F100CA2781 /* Pomo_Watch_AppUITestsLaunchTests.swift */; };
 		2FF36B6A298F653B0001BB55 /* OperateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF36B69298F653B0001BB55 /* OperateView.swift */; };
 		2FF36B6C298F655D0001BB55 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF36B6B298F655D0001BB55 /* TopView.swift */; };
-		2FF36B70299118A50001BB55 /* CurrentTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF36B6F299118A50001BB55 /* CurrentTaskViewModel.swift */; };
+		2FF36B70299118A50001BB55 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF36B6F299118A50001BB55 /* TimerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +65,8 @@
 /* Begin PBXFileReference section */
 		2F42D2D9298660F000DB20BA /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		2F73CB602999F9E000B842D6 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		2FB91DCA2992761200D842F5 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		2F73CB64299A0D6800B842D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2F73CB68299A2D1300B842D6 /* PomoTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoTimer.swift; sourceTree = "<group>"; };
 		2FC05B0E2973E0EE00CA2781 /* Pomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC05B142973E0EE00CA2781 /* Pomo Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pomo Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC05B192973E0EE00CA2781 /* PomoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoApp.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 		2FC05B362973E0F100CA2781 /* Pomo_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomo_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2FF36B69298F653B0001BB55 /* OperateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperateView.swift; sourceTree = "<group>"; };
 		2FF36B6B298F655D0001BB55 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
-		2FF36B6F299118A50001BB55 /* CurrentTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTaskViewModel.swift; sourceTree = "<group>"; };
+		2FF36B6F299118A50001BB55 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				2F73CB602999F9E000B842D6 /* Task.swift */,
+				2F73CB68299A2D1300B842D6 /* PomoTimer.swift */,
+				2F73CB64299A0D6800B842D6 /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,7 +121,7 @@
 		2F73CB622999FA2E00B842D6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				2FF36B6F299118A50001BB55 /* CurrentTaskViewModel.swift */,
+				2FF36B6F299118A50001BB55 /* TimerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -128,7 +132,6 @@
 				2FC05B1B2973E0EE00CA2781 /* ContentView.swift */,
 				2FF36B69298F653B0001BB55 /* OperateView.swift */,
 				2F42D2D9298660F000DB20BA /* TaskView.swift */,
-				2FB91DCA2992761200D842F5 /* TestView.swift */,
 				2FF36B6B298F655D0001BB55 /* TopView.swift */,
 			);
 			path = View;
@@ -352,13 +355,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F73CB612999F9E000B842D6 /* Task.swift in Sources */,
-				2FB91DCB2992761200D842F5 /* TestView.swift in Sources */,
-				2FF36B70299118A50001BB55 /* CurrentTaskViewModel.swift in Sources */,
+				2FF36B70299118A50001BB55 /* TimerViewModel.swift in Sources */,
 				2F42D2DA298660F000DB20BA /* TaskView.swift in Sources */,
 				2FF36B6C298F655D0001BB55 /* TopView.swift in Sources */,
 				2FC05B1C2973E0EE00CA2781 /* ContentView.swift in Sources */,
 				2FC05B1A2973E0EE00CA2781 /* PomoApp.swift in Sources */,
+				2F73CB69299A2D1300B842D6 /* PomoTimer.swift in Sources */,
 				2FF36B6A298F653B0001BB55 /* OperateView.swift in Sources */,
+				2F73CB65299A0D6800B842D6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

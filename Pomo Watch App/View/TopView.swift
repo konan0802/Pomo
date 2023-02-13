@@ -9,16 +9,12 @@ import SwiftUI
 
 struct TopView: View {
     
-    @ObservedObject var currentTaskStore: CurrentTaskStore?
-    currentTaskStore = CurrentTaskStore();
     @ObservedObject var display: Display
-    
-    currentTaskStore = CurrentTaskStore()
-    
+        
     var body: some View {
         VStack{
             Spacer()
-            ProgressCircle(limit: 1500, progress: currentTaskStore.task.duration!)
+            ProgressCircle()
             HStack{
                 RunningTask(display: self.display)
                 Spacer()
@@ -29,23 +25,21 @@ struct TopView: View {
 }
 
 struct ProgressCircle: View {
-    var limit: Int // 秒
-    var progress: Int // 秒
+    
+    @ObservedObject var timerViewModel = TimerViewModel()
     
     var body: some View {
-        let value = Double(progress) / Double(limit) //　割合
-        let min = progress / 60 // 分
-        let sec = progress - (min * 60) //時間
+        
         ZStack{
             Circle()
-                .trim(from: 0, to: value)
+                .trim(from: 0, to: Double(timerViewModel.timer.duration) / Double(timerViewModel.timer.limit))
                 .stroke(style: StrokeStyle(lineWidth: 18, lineCap: .round, lineJoin: .round))
-                .foregroundColor(Color.green)
+                .foregroundColor(Color(red: timerViewModel.timer.color.r, green: timerViewModel.timer.color.g, blue: timerViewModel.timer.color.b))
                 .rotationEffect(Angle(degrees: -90))
                 .frame(width: 132, height: 132)
-            Text(String(format: "%02d:%02d", min, sec))
+            Text(String(format: "%02d:%02d", timerViewModel.timer.duration / 60, timerViewModel.timer.duration - ((timerViewModel.timer.duration / 60) * 60)))
                 .font(.system(size: 36, weight: .medium))
-                //.foregroundColor(Color.green)
+                //.foregroundColor(Color(red: 赤の濃度, green: 緑の濃度, blue: 青の濃度, opacity: 不透明度))
         }
     }
 }
