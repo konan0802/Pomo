@@ -17,7 +17,7 @@ class TimerViewModel: ObservableObject {
     private let str = "4f5a97b5555c23ba00eaa7da624a7ade:api_token"
     
     init() {
-        self.timer = PomoTimer(duration: 1500, limit: 0, color: CororRGB(r: 0.024, g: 0.702, b: 0.286))
+        self.timer = PomoTimer(duration: 0, limit: 1500, color: CororRGB(r: 0.024, g: 0.702, b: 0.286))
         self.task = Task(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "")
         
         fetchCurrentTaskFromTogglAPI()
@@ -49,7 +49,7 @@ class TimerViewModel: ObservableObject {
             let data = data!
             let decoder = JSONDecoder()
             guard let decodedResponse = try? decoder.decode(Task.self, from: data) else {
-                self.timer = PomoTimer(duration: 1500, limit: 0, color: CororRGB(r: 0, g: 0.533, b: 0.2))
+                self.timer = PomoTimer(duration: 0, limit: 1500, color: CororRGB(r: 0, g: 0.533, b: 0.2))
                 self.task = Task(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "")
                 return
             }
