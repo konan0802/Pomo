@@ -7,12 +7,6 @@
 
 import Foundation
 
-struct CororRGB: Decodable {
-    var r: Double
-    var g: Double
-    var b: Double
-}
-
 struct PomoTimer: Decodable {
     var name: String
     var duration: Int

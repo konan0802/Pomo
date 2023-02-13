@@ -68,6 +68,7 @@ struct OperateTask: View {
             .onTapGesture {
                 display.operateViewOn = true
             }
+            .frame(height: 13)
     }
 }
 
