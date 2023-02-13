@@ -39,7 +39,6 @@ struct ProgressCircle: View {
                 .frame(width: 132, height: 132)
             Text(String(format: "%02d:%02d", timerViewModel.timer.duration / 60, timerViewModel.timer.duration - ((timerViewModel.timer.duration / 60) * 60)))
                 .font(.system(size: 36, weight: .medium))
-                //.foregroundColor(Color(red: 赤の濃度, green: 緑の濃度, blue: 青の濃度, opacity: 不透明度))
         }
     }
 }
