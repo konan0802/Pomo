@@ -29,7 +29,7 @@ import Foundation
    "pid": 184292335
  }
  */
-struct Task: Decodable {
+struct TaskToggl: Decodable {
     var id: Int
     var workspaceId: Int?
     var projectId: Int?

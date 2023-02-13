@@ -11,14 +11,14 @@ import Combine
 class TimerViewModel: ObservableObject {
     
     @Published var timer: PomoTimer
-    private var task: Task
+    private var task: TaskToggl
     
     private let url = URL(string: "https://api.track.toggl.com/api/v9/me/time_entries/current")!
     private let str = "4f5a97b5555c23ba00eaa7da624a7ade:api_token"
     
     init() {
         self.timer = PomoTimer(name: "", duration: 0, limit: 1500, color: CororRGB(r: 0.024, g: 0.702, b: 0.286))
-        self.task = Task(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "")
+        self.task = TaskToggl(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "")
         
         fetchCurrentTaskFromTogglAPI()
         
@@ -48,9 +48,9 @@ class TimerViewModel: ObservableObject {
             
             let data = data!
             let decoder = JSONDecoder()
-            guard let decodedResponse = try? decoder.decode(Task.self, from: data) else {
+            guard let decodedResponse = try? decoder.decode(TaskToggl.self, from: data) else {
                 self.timer = PomoTimer(name: "---", duration: 0, limit: 1500, color: CororRGB(r: 0, g: 0.533, b: 0.2))
-                self.task = Task(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "")
+                self.task = TaskToggl(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "")
                 return
             }
             DispatchQueue.main.async {
