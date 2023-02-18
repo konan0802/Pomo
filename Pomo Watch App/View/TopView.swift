@@ -56,7 +56,7 @@ struct RunningTask: View {
                 display.taskViewOn = true
             }
             .font(.system(size: 13))
-            .frame(width: 150, height: 13)
+            .frame(width: 150, height: 13, alignment: .leading)
     }
 }
 

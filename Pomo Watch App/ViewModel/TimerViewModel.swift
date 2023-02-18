@@ -17,8 +17,8 @@ class TimerViewModel: ObservableObject {
     private let str = "4f5a97b5555c23ba00eaa7da624a7ade:api_token"
     
     init() {
-        self.timer = PomoTimer(name: "", duration: 0, limit: 1500, color: CororRGB(r: 0.024, g: 0.702, b: 0.286))
-        self.task = TaskToggl(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "")
+        self.timer = PomoTimer(name: "---", duration: 0, limit: 1500, color: CororRGB(r: 0.024, g: 0.702, b: 0.286))
+        self.task = TaskToggl(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "---")
         
         fetchCurrentTaskFromTogglAPI()
         
@@ -31,7 +31,7 @@ class TimerViewModel: ObservableObject {
     }
 
     @objc private func countUp() {
-        if(self.task.description != "---") {
+        if (self.task.description != "---") {
             self.timer.duration += 1
         }
     }
@@ -50,7 +50,7 @@ class TimerViewModel: ObservableObject {
             let decoder = JSONDecoder()
             guard let decodedResponse = try? decoder.decode(TaskToggl.self, from: data) else {
                 self.timer = PomoTimer(name: "---", duration: 0, limit: 1500, color: CororRGB(r: 0, g: 0.533, b: 0.2))
-                self.task = TaskToggl(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "")
+                self.task = TaskToggl(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "---")
                 return
             }
             DispatchQueue.main.async {
