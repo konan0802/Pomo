@@ -19,7 +19,34 @@ struct OperateView: View {
                     Text("< Back").onTapGesture {display.operateViewOn = false}
                     Spacer()
                 }
-                Text("OperateView!")
+                Spacer()
+                HStack{
+                    Spacer()
+                    Image("MTG")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 45)
+                    Spacer()
+                    Image("MTG")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 45)
+                    Spacer()
+                }
+                Spacer()
+                HStack{
+                    Spacer()
+                    Image("MTG")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 45)
+                    Spacer()
+                    Image("MTG")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 45)
+                    Spacer()
+                }
                 Spacer()
                 
             }
