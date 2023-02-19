@@ -14,18 +14,24 @@ final class Display: ObservableObject {
 
 struct ContentView: View {
     
-    @ObservedObject var display = Display()
-    @ObservedObject var timerViewModel = TimerViewModel()
+    @StateObject var display = Display()
+    @StateObject var pomoTimer = PomoTimer()
 
     var body: some View {
         ZStack {
             
-            TopView(display: self.display, timerViewModel: self.timerViewModel)
+            TopView()
+                .environmentObject(display)
+                .environmentObject(pomoTimer)
             
             if display.taskViewOn {
-                TaskView(display: self.display)
+                TaskView()
+                    .environmentObject(display)
+                    .environmentObject(pomoTimer)
             }else if display.operateViewOn {
-                OperateView(display: self.display)
+                OperateView()
+                    .environmentObject(display)
+                    .environmentObject(pomoTimer)
             }
         }
     }

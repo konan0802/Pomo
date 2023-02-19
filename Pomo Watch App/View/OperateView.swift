@@ -9,7 +9,10 @@ import SwiftUI
 
 struct OperateView: View {
     
-    @ObservedObject var display: Display
+    @EnvironmentObject var display: Display
+    @EnvironmentObject var pomoTimer: PomoTimer
+    
+    var togglAPI = TogglAPI()
 
     var body: some View {
         ZStack {
@@ -26,25 +29,37 @@ struct OperateView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: 45)
+                        .onTapGesture {
+                            togglAPI.startEvent(taskName: Constants.MTG)
+                        }
                     Spacer()
-                    Image("MTG")
+                    Image("SBR")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 45)
+                        .onTapGesture {
+                            togglAPI.startEvent(taskName: Constants.SBR)
+                        }
                     Spacer()
                 }
                 Spacer()
                 HStack{
                     Spacer()
-                    Image("MTG")
+                    Image("LBR")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 45)
+                        .onTapGesture {
+                            togglAPI.startEvent(taskName: Constants.LBR)
+                        }
                     Spacer()
-                    Image("MTG")
+                    Image("LBR")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 45)
+                        .onTapGesture {
+                            togglAPI.stopEvent(timeEntryId: pomoTimer.timeEntryId)
+                        }
                     Spacer()
                 }
                 Spacer()

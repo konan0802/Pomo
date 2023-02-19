@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct TopView: View {
-    
-    @ObservedObject var display: Display
-    @ObservedObject var timerViewModel: TimerViewModel
 
     var body: some View {
         VStack{
             Spacer()
-            ProgressCircle(timerViewModel: self.timerViewModel)
+            ProgressCircle()
             Spacer()
             HStack{
-                RunningTask(display: self.display, timerViewModel: self.timerViewModel)
+                RunningTask()
                 Spacer()
-                OperateTask(display: self.display)
+                OperateTask()
             }
         }
     }
@@ -28,18 +25,18 @@ struct TopView: View {
 
 struct ProgressCircle: View {
     
-    @ObservedObject var timerViewModel: TimerViewModel
+    @EnvironmentObject var pomoTimer: PomoTimer
     
     var body: some View {
         
         ZStack{
             Circle()
-                .trim(from: 0, to: Double(timerViewModel.timer.duration) / Double(timerViewModel.timer.limit))
+                .trim(from: 0, to: Double(pomoTimer.duration) / Double(pomoTimer.limit))
                 .stroke(style: StrokeStyle(lineWidth: 18, lineCap: .round, lineJoin: .round))
-                .foregroundColor(Color(red: timerViewModel.timer.color.r, green: timerViewModel.timer.color.g, blue: timerViewModel.timer.color.b))
+                .foregroundColor(Color(red: pomoTimer.color.r, green: pomoTimer.color.g, blue: pomoTimer.color.b))
                 .rotationEffect(Angle(degrees: -90))
                 .frame(width: 125, height: 125)
-            Text(String(format: "%02d:%02d", timerViewModel.timer.duration / 60, timerViewModel.timer.duration - ((timerViewModel.timer.duration / 60) * 60)))
+            Text(String(format: "%02d:%02d", pomoTimer.duration / 60, pomoTimer.duration - ((pomoTimer.duration / 60) * 60)))
                 .font(.system(size: 34, weight: .medium))
         }
     }
@@ -47,11 +44,11 @@ struct ProgressCircle: View {
 
 struct RunningTask: View {
     
-    @ObservedObject var display: Display
-    @ObservedObject var timerViewModel: TimerViewModel
+    @EnvironmentObject var display: Display
+    @EnvironmentObject var pomoTimer: PomoTimer
     
     var body: some View {
-        Text(timerViewModel.timer.name)
+        Text(pomoTimer.name)
             .onTapGesture {
                 display.taskViewOn = true
             }
@@ -61,7 +58,7 @@ struct RunningTask: View {
 }
 
 struct OperateTask: View {
-    @ObservedObject var display: Display
+    @EnvironmentObject var display: Display
     
     var body: some View {
         Text("•••")

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TaskView: View {
     
-    @ObservedObject var display: Display
+    @EnvironmentObject var display: Display
 
     var body: some View {
         ZStack {
