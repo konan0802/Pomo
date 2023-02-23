@@ -29,7 +29,7 @@ import Foundation
    "pid": 184292335
  }
  */
-struct TogglTask: Decodable {
+struct TogglEventResponse: Decodable {
     var id: Int
     var workspaceId: Int?
     var projectId: Int?
@@ -50,11 +50,11 @@ class TogglAPI {
     private let url = URL(string: "https://api.track.toggl.com/api/v9/me/time_entries/current")!
     private let str = "4f5a97b5555c23ba00eaa7da624a7ade:api_token"
     
-    public func fetchCurrentEvent(conv:@escaping (TogglTask)->Void) {
+    public func fetchCurrentEvent(conv:@escaping (TogglEventResponse)->Void) {
         
         let url = URL(string: "https://api.track.toggl.com/api/v9/me/time_entries/current")
         
-        var task = TogglTask(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "---")
+        var task = TogglEventResponse(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "---")
         
         /// URLの生成
         let data: Data = str.data(using: .utf8)!
@@ -67,7 +67,7 @@ class TogglAPI {
             
             let data = data!
             let decoder = JSONDecoder()
-            guard let decodedResponse = try? decoder.decode(TogglTask.self, from: data) else {
+            guard let decodedResponse = try? decoder.decode(TogglEventResponse.self, from: data) else {
                 conv(task)
                 return
             }

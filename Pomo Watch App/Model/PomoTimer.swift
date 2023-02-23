@@ -43,19 +43,19 @@ class PomoTimer: ObservableObject {
     }
     
     @objc private func fetchCurrentTaskFromTogglAPI() {
-        togglAPI.fetchCurrentEvent(conv: {(task:TogglTask) in
+        togglAPI.fetchCurrentEvent(conv: {(resp:TogglEventResponse) in
             
-            if (task.description != "---") {
+            if (resp.description != "---") {
                 // nameの設定
-                self.name = task.description
+                self.name = resp.description
 
                 // durationの計算
                 let date = Date()
                 let unixtime = Int(date.timeIntervalSince1970)
-                self.duration = unixtime + task.duration
+                self.duration = unixtime + resp.duration
                 
                 // limitの設定
-                switch task.description {
+                switch resp.description {
                 case Constants.MTG:
                     self.limit = 3600
                 case Constants.SBR:
@@ -67,7 +67,7 @@ class PomoTimer: ObservableObject {
                 }
                 
                 // time_entry_idの設定
-                self.timeEntryId = task.id
+                self.timeEntryId = resp.id
                 
             } else {
                 self.name = "---"

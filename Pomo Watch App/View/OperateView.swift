@@ -53,7 +53,7 @@ struct OperateView: View {
                             togglAPI.startEvent(taskName: Constants.LBR)
                         }
                     Spacer()
-                    Image("LBR")
+                    Image("FIN")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 45)

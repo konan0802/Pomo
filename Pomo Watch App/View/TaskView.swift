@@ -10,6 +10,7 @@ import SwiftUI
 struct TaskView: View {
     
     @EnvironmentObject var display: Display
+    @StateObject var sheetsTasks = SheetsTasks()
 
     var body: some View {
         ZStack {
@@ -17,9 +18,14 @@ struct TaskView: View {
             VStack {
                 HStack{
                     Text("< Back").onTapGesture {display.taskViewOn = false}
+                        .frame(height: 13)
                     Spacer()
                 }
-                Text("TaskView!")
+                NavigationView {
+                    List(sheetsTasks.tasks, id: \.self) { task in
+                        Text(task)
+                    }
+                }
                 Spacer()
                 
             }
