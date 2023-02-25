@@ -19,7 +19,9 @@ struct OperateView: View {
             Color.black.ignoresSafeArea()
             VStack {
                 HStack{
-                    Text("< Back").onTapGesture {display.operateViewOn = false}
+                    Text("< Back").onTapGesture {
+                        display.operateViewOn = false
+                    }
                     Spacer()
                 }
                 Spacer()
@@ -32,6 +34,7 @@ struct OperateView: View {
                         .onTapGesture {
                             Task{
                                 await togglAPI.startEvent(taskName: Constants.MTG)
+                                display.operateViewOn = false
                             }
                         }
                     Spacer()
@@ -42,6 +45,7 @@ struct OperateView: View {
                         .onTapGesture {
                             Task{
                                 await togglAPI.startEvent(taskName: Constants.SBR)
+                                display.operateViewOn = false
                             }
                         }
                     Spacer()
@@ -56,6 +60,7 @@ struct OperateView: View {
                         .onTapGesture {
                             Task{
                                 await togglAPI.startEvent(taskName: Constants.LBR)
+                                display.operateViewOn = false
                             }
                         }
                     Spacer()
@@ -66,6 +71,7 @@ struct OperateView: View {
                         .onTapGesture {
                             Task{
                                 await togglAPI.stopEvent(timeEntryId: pomoTimer.timeEntryId)
+                                display.operateViewOn = false
                             }
                         }
                     Spacer()

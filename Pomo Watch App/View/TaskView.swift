@@ -11,20 +11,34 @@ struct TaskView: View {
     
     @EnvironmentObject var display: Display
     @StateObject var sheetsTasks = SheetsTasks()
+    
+    var togglAPI = TogglAPI()
 
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
             VStack {
                 HStack{
-                    Text("< Back").onTapGesture {display.taskViewOn = false}
-                        .frame(height: 13)
+                    Text("< Back")
+                        .onTapGesture {
+                            display.taskViewOn = false
+                        }
+                        .frame(height: 6)
                     Spacer()
                 }
                 NavigationView {
                     List(sheetsTasks.tasks, id: \.self) { task in
                         Text(task)
+                            .onTapGesture {
+                                Task{
+                                    await togglAPI.startEvent(taskName: task)
+                                    display.taskViewOn = false
+                                }
+                            }
                     }
+                    .navigationBarTitle("")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarHidden(true)
                 }
                 Spacer()
                 

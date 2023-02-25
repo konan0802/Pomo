@@ -25,7 +25,7 @@ class PomoTimer: ObservableObject {
     private var togglAPI = TogglAPI()
     
     init() {
-
+        
         fetchCurrentTaskFromTogglAPI()
         
         // 1s間隔でタイマーをカウントアップ
