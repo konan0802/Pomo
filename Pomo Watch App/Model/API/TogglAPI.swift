@@ -29,17 +29,14 @@ import Foundation
    "pid": 184292335
  }
  */
+
 struct TogglEventResponse: Decodable {
-    var id: Int
-    var workspaceId: Int?
-    var projectId: Int?
+    var id: Double
     var duration: Int
     var description: String
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
-        case workspaceId = "workspaceId"
-        case projectId = "projectId"
         case duration = "duration"
         case description = "description"
     }
@@ -48,44 +45,46 @@ struct TogglEventResponse: Decodable {
 class TogglAPI {
     
     private let url = URL(string: "https://api.track.toggl.com/api/v9/me/time_entries/current")!
-    private let str = "4f5a97b5555c23ba00eaa7da624a7ade:api_token"
+    private let token = "4f5a97b5555c23ba00eaa7da624a7ade:api_token"
     
-    public func fetchCurrentEvent(conv:@escaping (TogglEventResponse)->Void) {
+    public func fetchCurrentEvent() async throws -> TogglEventResponse {
         
         let url = URL(string: "https://api.track.toggl.com/api/v9/me/time_entries/current")
-        
-        var task = TogglEventResponse(id: 0, workspaceId: 0, projectId: 0, duration: 0, description: "---")
-        
-        /// URLの生成
-        let data: Data = str.data(using: .utf8)!
+
+        /// URLの生成4
+        let tokenData: Data = token.data(using: .utf8)!
         var request = URLRequest(url: url!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Basic " + data.base64EncodedString(), forHTTPHeaderField: "Authorization")
-
-        /// URLにアクセス
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            let data = data!
-            let decoder = JSONDecoder()
-            guard let decodedResponse = try? decoder.decode(TogglEventResponse.self, from: data) else {
-                conv(task)
-                return
+        request.setValue("Basic " + tokenData.base64EncodedString(), forHTTPHeaderField: "Authorization")
+        
+        do {
+            let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+            guard let httpStatus = urlResponse as? HTTPURLResponse else {
+                print(String(data: data, encoding: .utf8)!)
+                print(urlResponse)
+                return TogglEventResponse(id: 0, duration: 0, description: "---")
             }
-            DispatchQueue.main.async {
-                task = decodedResponse
-                conv(task)
-                return
+            switch httpStatus.statusCode {
+                case 200 ..< 400:
+                    let decodedResponse = try JSONDecoder().decode(TogglEventResponse.self, from: data)
+                    return decodedResponse
+                default:
+                    print(String(data: data, encoding: .utf8)!)
+                    print(urlResponse)
+                    return TogglEventResponse(id: 0, duration: 0, description: "---")
             }
-
-        }.resume()
+        } catch {
+            print(error)
+            return TogglEventResponse(id: 0, duration: 0, description: "---")
+        }
     }
     
-    public func startEvent(taskName: String) {
+    public func startEvent(taskName: String) async {
         
         let url = URL(string: "https://api.track.toggl.com/api/v9/workspaces/5762183/time_entries")
         
         /// URLの生成
-        let authData: Data = str.data(using: .utf8)!
+        let authData: Data = token.data(using: .utf8)!
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -108,26 +107,28 @@ class TogglAPI {
             "start": start, //開始時刻("1984-06-08T11:02:53+00:00")
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: data)
-        
-        /// URLにアクセス
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                print(error?.localizedDescription ?? "No data")
+        print("ggg")
+
+        do {
+            let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+            guard let httpStatus = urlResponse as? HTTPURLResponse else {
+                print(String(data: data, encoding: .utf8)!)
+                print(urlResponse)
                 return
             }
-            if let error = error {
-                print("Failed to get item info: \(error)")
-                return;
+            switch httpStatus.statusCode {
+                case 200 ..< 400:
+                    return
+                default:
+                    print(String(data: data, encoding: .utf8)!)
+                    print(urlResponse)
             }
-            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-            print("-----1> responseJSON: \(responseJSON)")
-            if let responseJSON = responseJSON as? [String: Any] {
-                print("-----2> responseJSON: \(responseJSON)")
-            }
-        }.resume()
+        } catch {
+            print(error)
+        }
     }
     
-    public func stopEvent(timeEntryId: Int) {
+    public func stopEvent(timeEntryId: Double) async {
         
         if (timeEntryId == 0) {
             return
@@ -136,27 +137,30 @@ class TogglAPI {
         let url = URL(string: "https://api.track.toggl.com/api/v9/workspaces/5762183/time_entries/" + String(timeEntryId) + "/stop")
         
         /// URLの生成
-        let authData: Data = str.data(using: .utf8)!
+        let authData: Data = token.data(using: .utf8)!
         var request = URLRequest(url: url!)
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Basic " + authData.base64EncodedString(), forHTTPHeaderField: "Authorization")
-        
+        print("ooo")
         /// URLにアクセス
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                print(error?.localizedDescription ?? "No data")
+        do {
+            let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+            guard let httpStatus = urlResponse as? HTTPURLResponse else {
+                print(String(data: data, encoding: .utf8)!)
+                print(urlResponse)
                 return
             }
-            if let error = error {
-                print("Failed to get item info: \(error)")
-                return;
+            switch httpStatus.statusCode {
+                case 200 ..< 400:
+                    return
+                default:
+                    print(String(data: data, encoding: .utf8)!)
+                    print(urlResponse)
             }
-            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-            print("-----1> responseJSON: \(responseJSON)")
-            if let responseJSON = responseJSON as? [String: Any] {
-                print("-----2> responseJSON: \(responseJSON)")
-            }
-        }.resume()
+        } catch {
+            print(error)
+        }
     }
 }
+

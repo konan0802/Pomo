@@ -30,7 +30,9 @@ struct OperateView: View {
                         .scaledToFill()
                         .frame(width: 45)
                         .onTapGesture {
-                            togglAPI.startEvent(taskName: Constants.MTG)
+                            Task{
+                                await togglAPI.startEvent(taskName: Constants.MTG)
+                            }
                         }
                     Spacer()
                     Image("SBR")
@@ -38,7 +40,9 @@ struct OperateView: View {
                         .scaledToFill()
                         .frame(width: 45)
                         .onTapGesture {
-                            togglAPI.startEvent(taskName: Constants.SBR)
+                            Task{
+                                await togglAPI.startEvent(taskName: Constants.SBR)
+                            }
                         }
                     Spacer()
                 }
@@ -50,7 +54,9 @@ struct OperateView: View {
                         .scaledToFill()
                         .frame(width: 45)
                         .onTapGesture {
-                            togglAPI.startEvent(taskName: Constants.LBR)
+                            Task{
+                                await togglAPI.startEvent(taskName: Constants.LBR)
+                            }
                         }
                     Spacer()
                     Image("FIN")
@@ -58,7 +64,9 @@ struct OperateView: View {
                         .scaledToFill()
                         .frame(width: 45)
                         .onTapGesture {
-                            togglAPI.stopEvent(timeEntryId: pomoTimer.timeEntryId)
+                            Task{
+                                await togglAPI.stopEvent(timeEntryId: pomoTimer.timeEntryId)
+                            }
                         }
                     Spacer()
                 }

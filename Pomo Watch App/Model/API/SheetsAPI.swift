@@ -49,7 +49,7 @@ class SheetsAPI {
         
         /// URLの生成
         let url = URL(string: "https://sheets.googleapis.com/v4/spreadsheets/1FatE2uTem9bY81dk1kag-R87sJcNk_g4woDthrzQ_uE/values/TODAY!B2:B9?key=AIzaSyCWi_mq2gzyHb3v9WckHuJ6J6kYebDLloE&majorDimension=COLUMNS")
-        var request = URLRequest(url: url!)
+        let request = URLRequest(url: url!)
         
         /// URLにアクセス
         URLSession.shared.dataTask(with: request) { data, response, error in

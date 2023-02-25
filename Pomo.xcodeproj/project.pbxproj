@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F41C65F29A9A60800C8EBC9 /* TogglAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41C65E29A9A60800C8EBC9 /* TogglAPI.swift */; };
 		2F42D2DA298660F000DB20BA /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F42D2D9298660F000DB20BA /* TaskView.swift */; };
 		2F73CB65299A0D6800B842D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F73CB64299A0D6800B842D6 /* Constants.swift */; };
 		2FC05B152973E0EE00CA2781 /* Pomo Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2FC05B142973E0EE00CA2781 /* Pomo Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -17,7 +18,6 @@
 		2FC05B2B2973E0F100CA2781 /* Pomo_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC05B2A2973E0F100CA2781 /* Pomo_Watch_AppTests.swift */; };
 		2FC05B352973E0F100CA2781 /* Pomo_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC05B342973E0F100CA2781 /* Pomo_Watch_AppUITests.swift */; };
 		2FC05B372973E0F100CA2781 /* Pomo_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC05B362973E0F100CA2781 /* Pomo_Watch_AppUITestsLaunchTests.swift */; };
-		2FF17DEE29A1C870009A7086 /* TogglAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF17DED29A1C870009A7086 /* TogglAPI.swift */; };
 		2FF17DF029A21C8E009A7086 /* SheetsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF17DEF29A21C8E009A7086 /* SheetsAPI.swift */; };
 		2FF17DF229A2205F009A7086 /* SheetsTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF17DF129A2205F009A7086 /* SheetsTasks.swift */; };
 		2FF36B6A298F653B0001BB55 /* OperateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF36B69298F653B0001BB55 /* OperateView.swift */; };
@@ -64,6 +64,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F34DAB129A9CDDE00564C7D /* Pomo-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Pomo-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		2F41C65E29A9A60800C8EBC9 /* TogglAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglAPI.swift; sourceTree = "<group>"; };
 		2F42D2D9298660F000DB20BA /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		2F73CB64299A0D6800B842D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2FC05B0E2973E0EE00CA2781 /* Pomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,7 +79,6 @@
 		2FC05B302973E0F100CA2781 /* Pomo Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pomo Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC05B342973E0F100CA2781 /* Pomo_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomo_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		2FC05B362973E0F100CA2781 /* Pomo_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomo_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2FF17DED29A1C870009A7086 /* TogglAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglAPI.swift; sourceTree = "<group>"; };
 		2FF17DEF29A21C8E009A7086 /* SheetsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsAPI.swift; sourceTree = "<group>"; };
 		2FF17DF129A2205F009A7086 /* SheetsTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsTasks.swift; sourceTree = "<group>"; };
 		2FF36B69298F653B0001BB55 /* OperateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperateView.swift; sourceTree = "<group>"; };
@@ -155,6 +156,7 @@
 		2FC05B182973E0EE00CA2781 /* Pomo Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				2F34DAB129A9CDDE00564C7D /* Pomo-Watch-App-Info.plist */,
 				2F73CB632999FA8300B842D6 /* View */,
 				2F73CB5F2999F9C100B842D6 /* Model */,
 				2FC05B192973E0EE00CA2781 /* PomoApp.swift */,
@@ -193,7 +195,7 @@
 		2FF17DEC29A1C855009A7086 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				2FF17DED29A1C870009A7086 /* TogglAPI.swift */,
+				2F41C65E29A9A60800C8EBC9 /* TogglAPI.swift */,
 				2FF17DEF29A21C8E009A7086 /* SheetsAPI.swift */,
 			);
 			path = API;
@@ -357,7 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FF17DEE29A1C870009A7086 /* TogglAPI.swift in Sources */,
+				2F41C65F29A9A60800C8EBC9 /* TogglAPI.swift in Sources */,
 				2FF36B70299118A50001BB55 /* PomoTimer.swift in Sources */,
 				2FF17DF029A21C8E009A7086 /* SheetsAPI.swift in Sources */,
 				2F42D2DA298660F000DB20BA /* TaskView.swift in Sources */,
@@ -458,6 +460,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -510,6 +513,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -528,7 +532,9 @@
 				DEVELOPMENT_TEAM = 8G55BK7KW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pomo-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Pomo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -558,7 +564,9 @@
 				DEVELOPMENT_TEAM = 8G55BK7KW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pomo-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Pomo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -585,7 +593,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8G55BK7KW6;
+				GADApplicationIdentifier = "";
 				INFOPLIST_KEY_CFBundleDisplayName = Pomo;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Pomo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -601,7 +611,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8G55BK7KW6;
+				GADApplicationIdentifier = "";
 				INFOPLIST_KEY_CFBundleDisplayName = Pomo;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Pomo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

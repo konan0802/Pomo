@@ -16,11 +16,11 @@ struct CororRGB: Decodable {
 
 class PomoTimer: ObservableObject {
         
-    @Published var name = "---"
-    @Published var duration = 0
-    @Published var limit = 1500
-    @Published var timeEntryId = 0
-    @Published var color = CororRGB(r: 0.024, g: 0.702, b: 0.286)
+    @Published var name: String = "---"
+    @Published var duration: Int = 0
+    @Published var limit: Int = 1500
+    @Published var timeEntryId: Double = 0
+    @Published var color: CororRGB = CororRGB(r: 0.024, g: 0.702, b: 0.286)
 
     private var togglAPI = TogglAPI()
     
@@ -43,41 +43,49 @@ class PomoTimer: ObservableObject {
     }
     
     @objc private func fetchCurrentTaskFromTogglAPI() {
-        togglAPI.fetchCurrentEvent(conv: {(resp:TogglEventResponse) in
-            
-            if (resp.description != "---") {
-                // nameの設定
-                self.name = resp.description
-
-                // durationの計算
-                let date = Date()
-                let unixtime = Int(date.timeIntervalSince1970)
-                self.duration = unixtime + resp.duration
-                
-                // limitの設定
-                switch resp.description {
-                case Constants.MTG:
-                    self.limit = 3600
-                case Constants.SBR:
-                    self.limit = 300
-                case Constants.LBR:
-                    self.limit = 900
-                default:
+        Task {
+            do {
+                let resp = try await togglAPI.fetchCurrentEvent()
+                if (resp.description != "---") {
+                    // nameの設定
+                    self.name = resp.description
+                    
+                    // durationの計算
+                    let date = Date()
+                    let unixtime = Int(date.timeIntervalSince1970)
+                    self.duration = unixtime + resp.duration
+                    
+                    // limitの設定
+                    switch resp.description {
+                    case Constants.MTG:
+                        self.limit = 3600
+                    case Constants.SBR:
+                        self.limit = 300
+                    case Constants.LBR:
+                        self.limit = 900
+                    default:
+                        self.limit = 1500
+                    }
+                    
+                    // time_entry_idの設定
+                    self.timeEntryId = resp.id
+                    
+                } else {
+                    self.name = "---"
+                    self.duration = 0
                     self.limit = 1500
+                    self.timeEntryId = 0
+                    self.color = CororRGB(r: 0.024, g: 0.702, b: 0.286)
+                    
                 }
-                
-                // time_entry_idの設定
-                self.timeEntryId = resp.id
-                
-            } else {
+            } catch {
                 self.name = "---"
                 self.duration = 0
                 self.limit = 1500
                 self.timeEntryId = 0
                 self.color = CororRGB(r: 0.024, g: 0.702, b: 0.286)
-
             }
-        })
+        }
     }
     
     @objc private func checkTimer() {
