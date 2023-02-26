@@ -31,7 +31,7 @@ import Foundation
  */
 
 struct TogglEventResponse: Decodable {
-    var id: Double
+    var id: UInt32
     var duration: Int
     var description: String
     
@@ -128,7 +128,7 @@ class TogglAPI {
         }
     }
     
-    public func stopEvent(timeEntryId: Double) async {
+    public func stopEvent(timeEntryId: UInt32) async {
         
         if (timeEntryId == 0) {
             return

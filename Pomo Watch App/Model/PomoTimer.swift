@@ -19,7 +19,7 @@ class PomoTimer: ObservableObject {
     @Published var name: String = "---"
     @Published var duration: Int = 0
     @Published var limit: Int = 1500
-    @Published var timeEntryId: Double = 0
+    @Published var timeEntryId: UInt32 = 0
     @Published var color: CororRGB = CororRGB(r: 0.024, g: 0.702, b: 0.286)
 
     private var togglAPI = TogglAPI()
