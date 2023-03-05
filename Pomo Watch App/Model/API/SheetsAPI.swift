@@ -7,28 +7,6 @@
 
 import Foundation
 
-/*
- {
-   "id": 2831627986,
-   "workspace_id": 5762183,
-   "project_id": 184292335,
-   "task_id": null,
-   "billable": false,
-   "start": "2023-02-05T06:03:23+00:00",
-   "stop": null,
-   "duration": -1675577004,
-   "description": "Pomoの作成",
-   "tags": [],
-   "tag_ids": [],
-   "duronly": true,
-   "at": "2023-02-05T06:03:28+00:00",
-   "server_deleted_at": null,
-   "user_id": 7288804,
-   "uid": 7288804,
-   "wid": 5762183,
-   "pid": 184292335
- }
- */
 struct SheetsApiResponse: Decodable {
     var range: String
     var majorDimension: String
@@ -48,7 +26,7 @@ class SheetsAPI {
         var task = SheetsApiResponse(range: "", majorDimension: "", values: [[""]])
         
         /// URLの生成
-        let url = URL(string: "https://sheets.googleapis.com/v4/spreadsheets/1FatE2uTem9bY81dk1kag-R87sJcNk_g4woDthrzQ_uE/values/TODAY!B3:B9?key=AIzaSyCWi_mq2gzyHb3v9WckHuJ6J6kYebDLloE&majorDimension=COLUMNS")
+        let url = URL(string: "https://sheets.googleapis.com/v4/spreadsheets/****/values/TODAY!B3:B9?key=AIzaSyCWi_mq2gzyHb3v9WckHuJ6J6kYebDLloE&majorDimension=COLUMNS")
         let request = URLRequest(url: url!)
         
         /// URLにアクセス

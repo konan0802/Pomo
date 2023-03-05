@@ -45,7 +45,7 @@ struct TogglEventResponse: Decodable {
 class TogglAPI {
     
     private let url = URL(string: "https://api.track.toggl.com/api/v9/me/time_entries/current")!
-    private let token = "4f5a97b5555c23ba00eaa7da624a7ade:api_token"
+    private let token = "****:api_token"
     
     public func fetchCurrentEvent() async throws -> TogglEventResponse {
         
@@ -107,7 +107,6 @@ class TogglAPI {
             "start": start, //開始時刻("1984-06-08T11:02:53+00:00")
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: data)
-        print("ggg")
 
         do {
             let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
@@ -142,7 +141,6 @@ class TogglAPI {
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Basic " + authData.base64EncodedString(), forHTTPHeaderField: "Authorization")
-        print("ooo")
         /// URLにアクセス
         do {
             let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
